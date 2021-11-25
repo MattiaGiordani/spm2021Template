@@ -41,12 +41,13 @@ class SeleniumTest {
 	 */
 	@BeforeEach
 	void setUp() throws Exception {
-		//if(System.getProperty("os.name").equals("Mac OS X")) {
-		System.setProperty("webdriver.chrome.driver", projectPath+"/drivers/mac/chromedriver");
-		//}
-		/*if(System.getProperty("os.name").contains("Windows")) {
-			System.setProperty("webdriver.chrome.driver", projectPath+"\\drivers\\windows\\chromedriver.exe");
-		}*/
+		if(System.getProperty("os.name").equals("Ubuntu")) {
+		System.setProperty("webdriver.chrome.driver", "/home/fab/Desktop/chromedriver");
+		}
+		if(System.getProperty("os.name").contains("Windows")) {
+			System.setProperty("webdriver.chrome.driver", "/home/fab/Desktop/chromedriver");
+		}
+	
 		driver = new ChromeDriver();
 	}
 
@@ -60,7 +61,7 @@ class SeleniumTest {
 	}
 
 	@Test
-	@Disabled
+	//@Disabled
 	void checkProsSite() throws InterruptedException {
 		
 		driver.get("http://pros.unicam.it/");
@@ -79,48 +80,30 @@ class SeleniumTest {
 	}
 	
 	@Test
-	@Disabled
+	//@Disabled
 	void checkProsSiteSearch() throws InterruptedException {
 		
 		// navigate your driver to mail.google.com
 		driver.get("http://pros.unicam.it/");
 
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		
 		//Find Element by className
 		driver.findElement(By.className("toggle-search")).click();
 		
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		
 		driver.findElement(By.className("search")).click();
 		
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		
 		driver.findElement(By.className("search")).sendKeys("bprove");
 		
-		Thread.sleep(4000);
-		
-		//TO COMPLETE
-			
-	}
-	
-	@Test
-	@Disabled
-	void checkThisWebAppTitle() throws InterruptedException {
-		
-		driver.get("http://localhost:8080/spm2021/");
-
 		Thread.sleep(3000);
 		
-		String at = driver.getTitle();
-		String et = "SPM 2021";
+		//TO COMPLETE
 		
-		//System.out.println(at);		
-		Thread.sleep(4000);
-
-		Assert.assertEquals(et,at);
-		
-		
+	
 	}
 
 }

@@ -22,6 +22,11 @@
   </properties>
 
   <dependencies>
+  <dependency>
+  <groupId>org.hamcrest</groupId>
+  <artifactId>hamcrest-core</artifactId>
+  <version>1.3</version>
+</dependency>
 <!--  JUNIT5 -->
 
 		<!-- JUnit5 dependencies: * junit-jupiter-api: for writing JUnit5 tests 
